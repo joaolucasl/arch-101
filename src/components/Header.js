@@ -76,11 +76,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
       }
     `}
     render={data => {
-      const logoImg = require('./images/logo.svg');
-
       const twitter = require('./images/twitter.svg');
-
-      const discordBrandsBlock = require('./images/discord-brands-block.svg');
 
       const twitterBrandsBlock = require('./images/twitter-brands-block.svg');
 
@@ -90,18 +86,18 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
         },
       } = data;
 
-      const finalLogoLink = logo.link !== '' ? logo.link : 'https://hasura.io/';
+      const finalLogoLink = logo.link !== '' ? logo.link : 'https://joaolucasl.github.io/arch-101';
 
       return (
         <div className={'navBarWrapper'}>
           <nav className={'navBarDefault'}>
             <div className={'navBarHeader'}>
               <Link to={finalLogoLink} className={'navBarBrand'}>
-                <img
+               { logo.image !== '' ? <img
                   className={'img-responsive displayInline'}
-                  src={logo.image !== '' ? logo.image : logoImg}
+                  src={logo.image}
                   alt={'logo'}
-                />
+                /> : "" }
               </Link>
               <div
                 className={'headerTitle displayInline'}
@@ -111,8 +107,19 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
             {config.header.social ? (
               <ul
                 className="socialWrapper visibleMobileView"
-                dangerouslySetInnerHTML={{ __html: config.header.social }}
-              ></ul>
+                // dangerouslySetInnerHTML={{ __html: config.header.social({ twitterBrandsBlock, discordBrandsBlock }) }}
+              >
+                <ul
+                      className="socialWrapper"
+                      // dangerouslySetInnerHTML={{ __html: config.header.social({ twitterBrandsBlock, discordBrandsBlock }) }}
+                    >
+                    <a href="https://twitter.com/joaolucasluc" target="_blank" rel="noopener noreferrer">
+                        <div className="twitterBtn">
+                          <img src={twitterBrandsBlock} alt={'Discord'}/>
+                        </div>
+                      </a>
+                    </ul>
+              </ul>
             ) : null}
             {isSearchEnabled ? (
               <div className={'searchWrapper hiddenMobile navBarUL'}>
@@ -162,14 +169,19 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                 {tweetText !== '' || githubUrl !== '' ? (
                   <li className="divider hiddenMobile"></li>
                 ) : null}
-                {config.header.social ? (
+                
                   <li className={'hiddenMobile'}>
                     <ul
                       className="socialWrapper"
-                      dangerouslySetInnerHTML={{ __html: config.header.social }}
-                    ></ul>
+                      // dangerouslySetInnerHTML={{ __html: config.header.social({ twitterBrandsBlock, discordBrandsBlock }) }}
+                    >
+                    <a href="https://twitter.com/joaolucasluc" target="_blank" rel="noopener noreferrer">
+                        <div className="twitterBtn">
+                          <img src={twitterBrandsBlock} alt={'Discord'}/>
+                        </div>
+                      </a>
+                    </ul>
                   </li>
-                ) : null}
                 {githubUrl !== '' ? (
                   <li className={'githubBtn'}>
                     <GitHubButton

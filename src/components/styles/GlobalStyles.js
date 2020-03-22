@@ -227,7 +227,6 @@ export const baseStyles = injectGlobal`
     line-height: 1.5;
     font-weight: 300;
     color: #fff !important;
-    margin-top: 16px;
     text-transform: uppercase;
   }
   .headerTitle a {
