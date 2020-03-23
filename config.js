@@ -9,7 +9,7 @@ const config = {
     logo: '',
     logoLink: 'https://joaolucasl.github.io/arch-101',
     title: "<h1><a href='https://joaolucasl.github.io/arch-101'>Arch 101</a></h1>",
-    githubUrl: 'https://gihub.com/joaolucasl/arch-101',
+    githubUrl: 'https://github.com/joaolucasl/arch-101',
     helpUrl: '',
     tweetText: '',
     links: [{ text: '', link: '' }],
